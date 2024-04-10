@@ -1,24 +1,51 @@
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import './SignUpPage.css'
+import { useNavigate } from 'react-router-dom'
 
 interface FormDataProps {
   id: number
   completename: string
   email: string
   password: string
-  cellnumber: number
+  cellnumber: string
 }
 
 const SignUpPage = () => {
+
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState<FormDataProps>({
     id: 0,
     completename: '',
     email: '',
     password: '',
-    cellnumber: 0
+    cellnumber: ''
   })
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    try {
+      const response = await fetch('http://localhost:4000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      const data = await response.json()
+      data.success ? navigate('/LandingPage') : alert('Utente esistente')
+    } catch (error) {
+      console.log(error, 'Error')
+    }
+  }
+
   return (
-  
+
     <>
       <div className="SignUpPage">
         <div className="Rectangle-2">
@@ -29,8 +56,7 @@ const SignUpPage = () => {
                 up
               </span>
             </span>
-            <form action="submit"
-            >
+            <form onSubmit={handleSubmit} >
               <div className="distribute">
                 <div>
 
@@ -38,49 +64,59 @@ const SignUpPage = () => {
                     <label htmlFor="text">
                       NOME E COGNOME
                     </label>
-                    <input 
-                    type="text" 
-                    id="text" 
-                    name="completename" 
-                    value={formData.completename}
-                    required />
+                    <input
+                      onChange={handleChange}
+                      type="text"
+                      id="text"
+                      name="completename"
+                      value={formData.completename}
+                      required />
                   </div>
                   <div className='input-des'>
                     <label htmlFor="email">
                       E-MAIL
                     </label>
-                    <input 
-                    type="email" 
-                    id="email" 
-                    name="email"
-                    value={formData.email} 
-                    required />
+                    <input
+                      onChange={handleChange}
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      required />
                   </div>
                   <div className='input-des'>
                     <label htmlFor="password">
                       PASSWORD
                     </label>
-                    <input 
-                    type="password" 
-                    id="username" 
-                    name="username"
-                    value={formData.password} 
-                    required />
+                    <input
+                      onChange={handleChange}
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      required />
                   </div>
                 </div>
                 <div>
-
+                    {/*   
                   <div className='input-des'>
                     <label htmlFor="password">
                       REPEAT PASSWORD
                     </label>
-                    <input type="password" id="username" name="username" required />
-                  </div>
+                    <input
+                      type="password"
+                      name="username"
+                      required />
+                  </div>*/}
                   <div className='input-des'>
                     <label htmlFor="cell-number">
                       CELL NUMBER
                     </label>
-                    <input type="text" id="cell-number" name="cell-number" required />
+                    <input
+                      onChange={handleChange}
+                      type="text"
+                      name="cellnumber"
+                      value={formData.cellnumber}
+                      required />
                   </div>
                   <button className="Login-Button" type="submit">SUBMIT</button>
                 </div>

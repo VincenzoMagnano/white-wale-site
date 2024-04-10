@@ -1,0 +1,31 @@
+.footer {
+    height: 42px;
+    padding: 1rem;
+    background-image: linear-gradient(to bottom, #ffffff 2%, #d3d3d3 80%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 7rem;
+    
+}
+
+.txt {
+    width: 279px;
+    height: 10px;
+    font-size: 0.5rem;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+.logo{
+   width: 12rem; 
+}
+.txt{
+    width: 400px;
+    font-size: 1rem;
+}
+    
+}

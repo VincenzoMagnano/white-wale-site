@@ -64,6 +64,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        
         margin: 1rem;
     }
 
@@ -282,6 +283,6 @@
         width: 609px;
         height: 61px;
         flex-grow: 0;
-        margin: 3rem;
+        margin: 2rem;
     }
 }
