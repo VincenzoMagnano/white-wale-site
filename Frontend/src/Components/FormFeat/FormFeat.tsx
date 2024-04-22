@@ -81,7 +81,7 @@ const FormFeat = () => {
             }
         } catch (error) {
             console.error('Errore durante la richiesta:', error);
-
+            alert('Si è verificato un errore durante il login');
         }
     };
 
@@ -94,13 +94,13 @@ const FormFeat = () => {
                             <div className='LoginPage'>
                                 <div className="Rectangle-1">
                                     <div className="Rectangle-5">
-                                        <img className='white-wale-logo' src="white-wale-logo.png" alt="" />
+                                        <img 
+                                        className='white-wale-logo' 
+                                        src="white-wale-logo.png" 
+                                        alt="" />
                                         <span className="Login">
                                             Login
                                         </span>
-
-
-
                                         <div className='input-des'>
                                             <label htmlFor="email">
                                                 E-MAIL
@@ -208,8 +208,8 @@ const FormFeat = () => {
                                                         value={formData.confirmPassword}
                                                         required />
                                                     <p style={{
-                                                         color: 'red', textAlign: 'center'
-                                                          }}>{password ? 'Le password non corrispondono' : ''}</p>
+                                                        color: 'red', textAlign: 'center'
+                                                    }}>{password ? 'Le password non corrispondono' : ''}</p>
                                                 </div>
                                                 <div className='input-des'>
                                                     <label htmlFor="cell-number">
@@ -223,18 +223,18 @@ const FormFeat = () => {
                                                         required />
                                                 </div>
                                                 <button className="Login-Button" type="submit">REGISTRATI</button>
-                                                <p 
-                                                style={{ fontWeight: 'bold', textAlign: 'center' }}>
+                                                <p
+                                                    style={{ fontWeight: 'bold', textAlign: 'center' }}>
                                                     Già registrato?
-                                                    <span 
-                                                    style={{
-                                                         color: 'grey',
-                                                          cursor: 'pointer',
-                                                           textDecoration: 'underline',
-                                                           fontFamily:'Bebas Neue',
-                                                           letterSpacing: '1px',
-                                                         }} 
-                                                    onClick={() => setShowLogin(true)}>Login</span></p>
+                                                    <span
+                                                        style={{
+                                                            color: 'grey',
+                                                            cursor: 'pointer',
+                                                            textDecoration: 'underline',
+                                                            fontFamily: 'Bebas Neue',
+                                                            letterSpacing: '1px',
+                                                        }}
+                                                        onClick={() => setShowLogin(true)}>Login</span></p>
                                             </div>
                                         </div>
 

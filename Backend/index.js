@@ -68,23 +68,23 @@ const trasporter = nodemailer.createTransport({
     },
 })
 
-async function sendEmail(email, completename) {
-    try {
-        const mailOptions = {
-            from: 'magnano.vincenzo.jobs@gmail.com',
-            to: email,
-            subject: 'Email verification',
-            html: `<h1>Benvenuto in White Wale ${completename}</h1>`,
+// async function sendEmail(email, completename) {
+//     try {
+//         const mailOptions = {
+//             from: 'magnano.vincenzo.jobs@gmail.com',
+//             to: email,
+//             subject: 'Email verification',
+//             html: `<h1>Benvenuto in White Wale ${completename}</h1>`,
 
-        }
+//         }
 
-        await trasporter.sendMail(mailOptions)
-        console.log("Email di benvenuto inviata con successo a: " + email)
-    } catch (error) {
-        console.error("Errore nell'invio dell'email: " + error)
-        throw new error("Errore nell'invio dell'email")
-    }
-}
+//         await trasporter.sendMail(mailOptions)
+//         console.log("Email di benvenuto inviata con successo a: " + email)
+//     } catch (error) {
+//         console.error("Errore nell'invio dell'email: " + error)
+//         throw new error("Errore nell'invio dell'email")
+//     }
+// }
 
 //SIGNUP
 
@@ -121,7 +121,7 @@ app.post('/signup', async (req, resp) => {
 
         await user.save();
 
-        await sendEmail(email, completename);
+        // await sendEmail(email, completename);
 
         const data = {
             user: {
@@ -140,72 +140,32 @@ app.post('/signup', async (req, resp) => {
     }
 });
 
-// app.post('/signup', async (req, resp) => {
-//     let users = await Users.find({});
-//     let id;
-
-//     if (users.length > 0) {
-//         last_users = users.slice(-1)[0]
-//         id = last_users.id + 1
-//     } else {
-//         id = 1
-//     }
-
-//     let check = await Users.findOne({ email: req.body.email })
-//     if (check) {
-//         return resp.status(400).json({ success: false, error: "existing user found with same email address" })
-//     }
-
-//     const user = new Users({
-//         id: id,
-//         completename: req.body.completename,
-//         email: req.body.email,
-//         password: req.body.password,
-//         cellnumber: req.body.cellnumber
-
-//     })
 
 
-//     console.log(users);
-//     await user.save();
-//     console.log('Saved')
-//     resp.json({
-//         success: true,
-//         completename: req.body.completename
-//     })
-
-//     const data = {
-//         user:{
-//             id:user.id
-//         }
-//     }
-
-//     const token = jwt.sign(data, 'jwt-secret')
-//     resp.json({
-//         success: true, token
-//     })
-// })
-
-//LOGIN
-
+// LOGIN
 app.post('/login', async (req, res) => {
-    let user = await Users.findOne({ email: req.body.email });
-    if (user) {
-        const passCompare = req.body.password === user.password;
-        if (passCompare) {
-            const data = {
-                user: {
-                    id: user.id,
+    try {
+        const user = await Users.findOne({ email: req.body.email });
+
+        if (user) {
+            const match = await bcrypt.compare(req.body.password, user.password);
+
+            if (match) {
+                const data = {
+                    user: {
+                        id: user.id,
+                    }
                 }
+                const token = jwt.sign(data, 'secret_ecom');
+                res.json({ success: true, token });
+            } else {
+                res.json({ success: false, error: 'Wrong Password' });
             }
-            const token = jwt.sign(data, 'secret_ecom');
-            res.json({ success: true, token });
+        } else {
+            res.json({ success: false, error: 'Wrong Email Id' });
         }
-        else {
-            res.json({ success: false, error: 'Wrong Password' });
-        }
+    } catch (error) {
+        console.error("Errore durante il login:", error);
+        res.status(500).json({ error: "Si è verificato un errore durante il login" });
     }
-    else {
-        res.json({ success: false, error: 'Wrong Email Id' })
-    }
-})
+});

@@ -1,0 +1,74 @@
+.main-table {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas neue', sans-serif;
+   
+}
+
+.month-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.month-nav button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.month-nav button i {
+    color: black;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ededed;
+    box-shadow: 12px 12px 12px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border: 1px solid #cccccc7f;
+    background-color: rgb(220, 219, 219);
+}
+.table td {
+    font-size: 0.7rem;
+    text-align: end;
+    color: grey;
+    padding: 3rem;
+    border: 1px solid #cccccc7f;
+    position: relative;
+
+}
+
+.add-image{
+    width: 20px;
+}
+
+.add-btn{
+    display: none;
+    background: none;
+    position: absolute;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    
+}
+
+.table td:hover .add-btn{
+    display: block;
+}
+
+.arrow{
+    width: 20px;
+}

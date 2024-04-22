@@ -1,26 +1,14 @@
 
-import { useState } from 'react';
-import Footer from '../../Components/Footer/Footer.tsx'
-import Navbar from '../../Components/Navbar/Navbar'
 import './LandingPage.css'
 
+
 const LandingPage = () => {
-
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-    console.log(menuOpen)
-  };
 
 
   return (
     <>
-      <div
-        onClick={menuOpen ? toggleMenu : undefined}
-        className="format-page">
-        <div className="page-container">
-          <Navbar toggleMenu={toggleMenu} menuOpen={menuOpen} />
+      
+        
           <div className="front-container">
             <div className='inner-front'>
               <h1>Prenota subito
@@ -35,8 +23,8 @@ const LandingPage = () => {
             </div>
           </div>
           <h2 className="divide">
-            Porta le tue
-            <span className="text-style-1"> prod </span>
+            Porta la tua
+            <span className="text-style-1"> musica </span>
             al livello
             successivo
           </h2>
@@ -44,36 +32,35 @@ const LandingPage = () => {
           <div className="bottom">
             <div className="Rectangle-9">
               <span className="title">
-                20 anni di
-                <span className="text-style-1"> sample</span>
+                direzione
+                <span className="text-style-1"> artistica</span>
               </span>
-              <p className='description'>Con oltre due decenni di esperienza nella raccolta e nell'esplorazione dei suoni distintivi della cultura hip hop e trap, ci troviamo nel cuore della scena musicale contemporanea.
+              <p className='description'>Immergiti <u>in un anno</u> di collaborazione dedicata alla tua crescita artistica. 
+                  <br /> <br /> La nostra direzione artistica non è solo una serie di schemi o checklist, ma un viaggio creativo che affrontiamo insieme.
+                  <br /> <br />
+                Iniziamo con la <u> definizione delle tempistiche.</u> Pianifichiamo un calendario di produzione che non solo tiene conto delle scadenze, ma che ti permette anche di esprimere al meglio la tua creatività, garantendo qualità e coerenza nel tuo percorso musicale.
+                  <br /> <br />
+                Passiamo poi alle <u>tematiche.</u>  Ogni artista ha una storia da raccontare e un messaggio da trasmettere. Ci dedichiamo a capire le tue esperienze, le tue passioni e le tue aspirazioni per identificare quelle tematiche che risuonano profondamente con te e con il tuo pubblico.
+                  <br /> <br />
+                Non meno importante è lo <u>sviluppo degli stili musicali.</u> L'arte di definire un sound distintivo che sia autenticamente tuo è una delle sfide più emozionanti. Lavoriamo insieme per trovare quel giusto equilibrio che esalta la tua voce e riflette il tuo stile unico nel vasto panorama musicale.
+                <br /> <br />
+                Infine, ma fondamentale, è la nostra <u> attenzione verso l'artista e il personaggio che desideri rappresentare.</u> Prima di ogni decisione creativa, ci prendiamo il tempo di conoscere profondamente chi sei come artista, assicurando che ogni direzione presa sia in perfetta sintonia con la tua visione e i tuoi valori.
+                <br /> <br />
+                Unisciti a noi in questo percorso di crescita e scopri come una direzione artistica su misura può fare la differenza nel tuo percorso musicale.
 
-                Da piccoli club underground alle piazze principali delle città, abbiamo viaggiato attraverso le strade del ritmo e della rima, catturando l'essenza e la vitalità di ogni battito.
 
-                Attraverso anni di ricerca appassionata e sperimentazione incrociata, abbiamo coltivato una vasta collezione di sample che riflettono la ricchezza e la diversità della cultura urbana. Dai graffiti alle esperienze di vita quotidiana, dai suoni delle strade ai ritmi intricati dei quartieri urbani, ogni sample è un frammento autentico della storia e della creatività che permea la musica hip hop e trap.
-
-                Oggi, siamo lieti di condividere questa preziosa collezione con te. Mettiamo a disposizione dei nostri clienti non solo suoni, ma anche una finestra aperta sulle radici e l'evoluzione di generi musicali che hanno plasmato e continuano a plasmare il panorama musicale globale.
-
-                Sia che tu sia un aspirante produttore in cerca di ispirazione, un artista alla ricerca del suono perfetto, o semplicemente un appassionato di musica desideroso di esplorare nuovi orizzonti sonori, siamo qui per offrirti un viaggio unico attraverso la vastità della musica urbana.
-
-                Preparati a immergerti in un mondo di groove e melodia, dove le barriere culturali si dissolvono e le storie si intrecciano attraverso il linguaggio universale della musica. Siamo entusiasti di accompagnarti in questo viaggio e di essere parte della tua esperienza musicale.
-
-                <br /> <br /> Benvenuto in White Wale.</p>
+                <br /> <br /> Benvenuto in <u> White Wale.</u></p>
             </div>
             <div className='drum-div'>
 
-            <img
-              className='DRUMKIT'
-              src="DRUMKIT.png"
-              alt="" />
+              <img
+                className='DRUMKIT'
+                src="DRUMKIT.png"
+                alt="" />
 
-            <button className='DRUM-button'>ACQUISTA SUBITO </button>
+              <button className='DRUM-button'>Richiedi una consulenza gratuita </button>
             </div>
           </div>
-        </div>
-      </div>
-      <Footer />
     </>
   )
 }

@@ -1,0 +1,148 @@
+.about-us-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.artist-container {
+    width: 100%;
+}
+
+.media-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    top: 0px;
+    background-color: rgb(224, 223, 223);
+    box-shadow: 10px 12px 15.8px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.media-container p {
+    font-size: 0.8rem;
+    font-family: 'poppins';
+    text-align: center;
+    text-shadow: 2px 2px 11.3px rgba(0, 0, 0, 0.25) ;
+}
+
+.artist-name {
+    font-family: 'Bebas neue';
+    font-size: 0.8rem;
+    color: rgb(23, 23, 23);
+}
+
+.artist-front {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.who {
+    font-size: 3rem;
+    font-family: 'Bebas neue';
+    text-shadow: 7px 8px 21.3px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.artist-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(132, 132, 132);
+
+}
+
+.artist-card img {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.artist-card p {
+    text-align: start;
+    font-size: 0.7rem;
+    font-family: 'poppins';
+
+    overflow: auto;
+}
+
+.about-us-btn {
+    font-size: 0.7rem;
+    margin: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+
+    .artist-container {
+        width: 80%;
+    }
+
+    .about-us-media {
+        flex-direction: column;
+    }
+
+    .artist-card {
+        flex-direction: row;
+    }
+
+    .artist-card img {
+        width: 50%;
+    }
+
+    .artist-card p {
+        font-size: 0.85rem;
+        width: 80%;
+    }
+
+    .artist-name {
+        font-family: 'Bebas neue';
+        font-size: 1rem;
+        color: rgb(23, 23, 23);
+    }
+
+    .about-us-btn {
+        font-size: 1rem;
+    }
+
+
+}
+
+@media screen and (min-width: 1020px) {
+    .artist-container {
+        width: 40%;
+    }
+
+    .about-us-media {
+        flex-direction: row;
+    }
+
+    .artist-card {
+        flex-direction: row;
+    }
+
+    .artist-card img {
+        width: 50%;
+
+    }
+
+    .artist-card p {
+        font-size: 0.8rem;
+
+    }
+
+    .artist-name {
+        font-family: 'Bebas neue';
+        font-size: 1.2rem;
+        color: rgb(23, 23, 23);
+    }
+
+    .media-container {
+        top: -130px;
+    }
+}
